@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+
 using Newtonsoft.Json;
 
 namespace Proy27.LogTool
@@ -23,21 +24,32 @@ namespace Proy27.LogTool
 		{
 			_Log(JsonConvert.SerializeObject(e), type);
 		}
-
+		public static void Info(string e)
+		{
+			_Log(e, "[INF]");
+		}
 		public static void Info(object e)
 		{
 			_Log(e, "[INF]");
 		}
+		public static void Error(string e)
+		{
+			_Log(e, "[ERR]");
+		}
 		public static void Error(object e)
 		{
 			_Log(e, "[ERR]");
+		}
+		public static void Debug(string e)
+		{
+			if (IsDebug)
+				_Log(e, "[DBG]");
 		}
 		public static void Debug(object e)
 		{
 			if (IsDebug)
 				_Log(e, "[DBG]");
 		}
-
 		static void LogWriteFileByAppend(string path, string e)
 		{
 			lock (_lock)
