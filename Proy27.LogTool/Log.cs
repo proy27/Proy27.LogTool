@@ -30,7 +30,7 @@ namespace Proy27.LogTool
 		}
 		public static void Info(object e)
 		{
-			_Log(e, "[INF]");
+			Info(JsonConvert.SerializeObject(e));
 		}
 		public static void Error(string e)
 		{
@@ -38,7 +38,7 @@ namespace Proy27.LogTool
 		}
 		public static void Error(object e)
 		{
-			_Log(e, "[ERR]");
+			Error(JsonConvert.SerializeObject(e));
 		}
 		public static void Debug(string e)
 		{
@@ -47,14 +47,26 @@ namespace Proy27.LogTool
 		}
 		public static void Debug(object e)
 		{
-			if (IsDebug)
-				_Log(e, "[DBG]");
+			Debug(JsonConvert.SerializeObject(e));
 		}
 		static void LogWriteFileByAppend(string path, string e)
 		{
 			lock (_lock)
 			{
-				File.AppendAllText(path, e + "\r\n");
+				try
+				{
+					File.AppendAllText(path, e + "\r\n");
+				}
+				catch (Exception)
+				{
+					try
+					{
+						File.AppendAllText(path, e + "\r\n");
+					}
+					catch (Exception)
+					{
+					}
+				}
 			}
 		}
 
