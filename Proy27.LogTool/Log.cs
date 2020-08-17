@@ -16,7 +16,9 @@ namespace Proy27.LogTool
 			var now = DateTime.Now;
 			var ss = now.ToString("s") + $"  {type}  " + e;
 			if (IsConsole)
-				Console.WriteLine(ss);
+			{
+				Task.Run(() => Console.WriteLine(ss));
+			}
 			var path = LogPath + now.ToString("yyyyMMdd") + ".log";
 			Task.Run(() => LogWriteFileByAppend(path, ss));
 		}
