@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json;
@@ -14,14 +15,23 @@ namespace Proy27.LogTool
 		private static Object _lock = new object();
 		private static void _Log(string e, string type)
 		{
+			//var now = DateTime.Now;
+			//var ss = now.ToString("s") + $"  {type}  " + e;
+			//if (IsConsole)
+			//{
+			//	Task.Run(() => Console.WriteLine(ss));
+			//}
+			//var path = LogPath + now.ToString("yyyyMMdd") + ".log";
+			//Task.Run(() => LogWriteFileByAppend(path, ss));
 			var now = DateTime.Now;
 			var ss = now.ToString("s") + $"  {type}  " + e;
 			if (IsConsole)
 			{
-				Task.Run(() => Console.WriteLine(ss));
+				Console.Out.WriteLineAsync(ss);
 			}
 			var path = LogPath + now.ToString("yyyyMMdd") + ".log";
-			Task.Run(() => LogWriteFileByAppend(path, ss));
+			LogWriteFileByAppend(path, ss);
+
 		}
 		private static void _Log(object e, string type)
 		{
@@ -81,6 +91,7 @@ namespace Proy27.LogTool
 			IsConsole = true;
 			IsWriteFile = true;
 			Directory.CreateDirectory(LogPath);
+			Console.OutputEncoding = Encoding.UTF8;
 		}
 		public static void SetLogPath(string path)
 		{

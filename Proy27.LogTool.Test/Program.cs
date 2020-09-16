@@ -8,10 +8,15 @@ namespace Proy27.LogTool.Test
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			//Console.WriteLine("Hello World!");
 			var sw = Stopwatch.StartNew();
-			Thread.Sleep(888);
-			Console.WriteLine(sw.Avg(3));
+			int i = 0;
+			while (true)
+			{
+				i++;
+				Thread.Sleep(1000);
+				Log.Info(sw.Avg(i*3));
+			}
 		}
 	}
 }
