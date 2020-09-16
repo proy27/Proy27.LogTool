@@ -10,6 +10,7 @@ namespace Proy27.LogTool
 	{
 		public static bool IsDebug { get; set; }
 		public static bool IsConsole { get; set; }
+		public static bool IsWriteFile { get; set; }
 		private static Object _lock = new object();
 		private static void _Log(string e, string type)
 		{
@@ -53,6 +54,7 @@ namespace Proy27.LogTool
 		}
 		static void LogWriteFileByAppend(string path, string e)
 		{
+			if (IsWriteFile == false) return;
 			lock (_lock)
 			{
 				try
@@ -77,6 +79,7 @@ namespace Proy27.LogTool
 		{
 			IsDebug = true;
 			IsConsole = true;
+			IsWriteFile = true;
 			Directory.CreateDirectory(LogPath);
 		}
 		public static void SetLogPath(string path)
