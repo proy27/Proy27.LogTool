@@ -8,6 +8,7 @@
     <Authors>Proy27</Authors>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <Version>1.0.5</Version>
+    <PackageProjectUrl>https://github.com/proy27/Proy27.LogTool</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
