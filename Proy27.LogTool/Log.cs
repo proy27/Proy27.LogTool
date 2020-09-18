@@ -24,10 +24,11 @@ namespace Proy27.LogTool
 			//var path = LogPath + now.ToString("yyyyMMdd") + ".log";
 			//Task.Run(() => LogWriteFileByAppend(path, ss));
 			var now = DateTime.Now;
-			var ss = now.ToString("s") + $"  {type}  " + e;
+			var ss = now.ToString("s") + $"  {type}  {e}";
 			if (IsConsole)
 			{
-				Console.Out.WriteLineAsync(ss);
+				//Console.Out.WriteLineAsync(ss);
+				NonBlockingConsole.WriteLine(ss);
 			}
 			var path = LogPath + now.ToString("yyyyMMdd") + ".log";
 			LogWriteFileByAppend(path, ss);
