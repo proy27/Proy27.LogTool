@@ -92,8 +92,16 @@ namespace Proy27.LogTool
 			IsConsole = true;
 			IsWriteFile = true;
 			Directory.CreateDirectory(LogPath);
-			Console.OutputEncoding = Encoding.UTF8;
+			//windows service will error
+			try
+			{
+				Console.OutputEncoding = Encoding.UTF8;
+			}
+			catch (Exception e)
+			{
+			}
 		}
+		//public static 
 		public static void SetLogPath(string path)
 		{
 			LogPath = path;

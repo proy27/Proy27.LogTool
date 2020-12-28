@@ -10,6 +10,8 @@
     <Version>1.1.0</Version>
     <PackageProjectUrl>https://github.com/proy27/Proy27.LogTool</PackageProjectUrl>
     <RepositoryUrl>https://github.com/proy27/Proy27.LogTool</RepositoryUrl>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <FileVersion>1.1.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
