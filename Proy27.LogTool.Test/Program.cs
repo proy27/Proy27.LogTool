@@ -21,10 +21,10 @@ namespace Proy27.LogTool.Test
 			{
 				i++;
 				Thread.Sleep(100);
-				if (i%5==0)
-				{
-					Log.Info("i%5==0");
-				}
+				//if (i % 5 == 0)
+				//{
+				//	Log.Info("i%5==0");
+				//}
 				Log.RepeatLine(sw.Avg(i*3));
 			}
 		}
