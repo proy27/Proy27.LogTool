@@ -33,8 +33,43 @@ namespace Proy27.LogTool
 
 	public static class NonBlockingConsole
 	{
-		private static BlockingCollection<string> m_Queue = new BlockingCollection<string>();
+		private static BlockingCollection<qq> Queue = new BlockingCollection<qq>();
+		static NonBlockingConsole()
+		{
+			var thread = new Thread(
+				() =>
+				{
+					while (true)
+					{
+						var t = Queue.Take();
+						if (t.Type == ConsoleType.WriteLine)
+						{
+							Console.WriteLine(t.Line);
+						}
+						else if (t.Type == ConsoleType.RepeatLine)
+						{
+							Console.CursorLeft = 0;
+							Console.Write(new String(' ', Console.BufferWidth));
+							Console.CursorLeft = 0;
+							Console.Write(t.Line);
+							Console.CursorLeft = 0;
+						}
+					}
+				});
+			thread.IsBackground = true;
+			thread.Start();
+		}
+		public static void WriteLine(string value)
+		{
+			Queue.Add(new qq(value));
+		}
+		public static void RepeatLine(string value)
+		{
+			Queue.Add(qq.RepeatLine(value));
+		}
 
+		/*OLD
+		private static BlockingCollection<string> m_Queue = new BlockingCollection<string>();
 		static NonBlockingConsole()
 		{
 			var thread = new Thread(
@@ -45,10 +80,39 @@ namespace Proy27.LogTool
 			thread.IsBackground = true;
 			thread.Start();
 		}
-
 		public static void WriteLine(string value)
 		{
 			m_Queue.Add(value);
 		}
+		//*/
+	}
+
+	public class qq
+	{
+		public ConsoleType Type { get; set; }
+		public string Line { get; set; }
+
+		public qq()
+		{
+		}
+		public qq(string e)
+		{
+			Line = e;
+			Type = ConsoleType.WriteLine;
+		}
+		public qq(string e, ConsoleType c)
+		{
+			Line = e;
+			Type = c;
+		}
+		public static qq RepeatLine(string e)
+		{
+			return new qq(e, ConsoleType.RepeatLine);
+		}
+	}
+
+	public enum ConsoleType
+	{
+		WriteLine, RepeatLine
 	}
 }

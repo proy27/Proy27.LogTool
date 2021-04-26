@@ -15,14 +15,6 @@ namespace Proy27.LogTool
 		private static Object _lock = new object();
 		private static void _Log(string e, string type)
 		{
-			//var now = DateTime.Now;
-			//var ss = now.ToString("s") + $"  {type}  " + e;
-			//if (IsConsole)
-			//{
-			//	Task.Run(() => Console.WriteLine(ss));
-			//}
-			//var path = LogPath + now.ToString("yyyyMMdd") + ".log";
-			//Task.Run(() => LogWriteFileByAppend(path, ss));
 			var now = DateTime.Now;
 			var ss = now.ToString("s") + $"  {type}  {e}";
 			if (IsConsole)
@@ -32,7 +24,18 @@ namespace Proy27.LogTool
 			}
 			var path = LogPath + now.ToString("yyyyMMdd") + ".log";
 			LogWriteFileByAppend(path, ss);
-
+		}
+		public static void RepeatLine(string e)
+		{
+			var now = DateTime.Now;
+			var ss = now.ToString("s") + $"    {e}";
+			if (IsConsole)
+			{
+				//Console.Out.WriteLineAsync(ss);
+				NonBlockingConsole.RepeatLine(ss);
+			}
+			var path = LogPath + now.ToString("yyyyMMdd") + ".log";
+			LogWriteFileByAppend(path, ss);
 		}
 		private static void _Log(object e, string type)
 		{

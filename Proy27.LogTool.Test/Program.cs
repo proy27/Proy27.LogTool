@@ -22,8 +22,12 @@ namespace Proy27.LogTool.Test
 			while (true)
 			{
 				i++;
-				Thread.Sleep(1000);
-				Log.Info(sw.Avg(i*3));
+				Thread.Sleep(100);
+				if (i%5==0)
+				{
+					Log.Info("i%5==0");
+				}
+				Log.RepeatLine(sw.Avg(i*3));
 			}
 		}
 		public class MyClass
