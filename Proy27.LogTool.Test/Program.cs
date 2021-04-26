@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Threading;
 
 namespace Proy27.LogTool.Test
@@ -11,7 +12,9 @@ namespace Proy27.LogTool.Test
 			Log.Info("I am info");
 			Log.Debug("I am Debug");
 			Log.Error("I am Error");
-			var a = new MyClass {aaa = "aaa",bbb = "bbb"};
+			dynamic a = new ExpandoObject();
+			a.aaa = "aaa";
+			a.bbb = "bbb";
 			Log.Info(a);// Convert to Json
 
 			var sw = Stopwatch.StartNew(); 
@@ -29,12 +32,6 @@ namespace Proy27.LogTool.Test
 			}
 			Log.NextLine();
 			Log.NextLine();
-
-		}
-		public class MyClass
-		{
-			public string aaa { get; set; }
-			public string bbb { get; set; }
 		}
 	}
 }
