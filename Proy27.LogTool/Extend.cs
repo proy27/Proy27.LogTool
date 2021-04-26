@@ -54,6 +54,10 @@ namespace Proy27.LogTool
 							Console.Write(new String(' ', 10));
 							Console.CursorLeft = 0;
 						}
+						else if (t.Type == ConsoleType.NextLine)
+						{
+							Console.CursorTop += 1;
+						}
 					}
 				});
 			thread.IsBackground = true;
@@ -66,6 +70,10 @@ namespace Proy27.LogTool
 		public static void RepeatLine(string value)
 		{
 			Queue.Add(qq.RepeatLine(value));
+		}
+		public static void NextLine()
+		{
+			Queue.Add(new qq("",ConsoleType.NextLine));
 		}
 
 		/*OLD
@@ -113,6 +121,6 @@ namespace Proy27.LogTool
 
 	public enum ConsoleType
 	{
-		WriteLine, RepeatLine
+		WriteLine, RepeatLine,NextLine
 	}
 }

@@ -40,6 +40,10 @@ namespace Proy27.LogTool
 				LogWriteFileByAppend(path, ss);
 			}
 		}
+		public static void NextLine()
+		{
+			NonBlockingConsole.NextLine();
+		}
 		private static void _Log(object e, string type)
 		{
 			_Log(JsonConvert.SerializeObject(e), type);

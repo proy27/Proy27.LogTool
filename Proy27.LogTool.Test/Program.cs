@@ -17,16 +17,31 @@ namespace Proy27.LogTool.Test
 
 			var sw = Stopwatch.StartNew(); 
 			int i = 0;
-			while (true)
+			//while (true)
+			//{
+			//	i++;
+			//	Thread.Sleep(100);
+			//	//if (i % 5 == 0)
+			//	//{
+			//	//	Log.Info("i%5==0");
+			//	//}
+			//	Log.RepeatLine(sw.Avg(i*3));
+			//}
+
+			for (int j = 0; j < 10; j++)
 			{
-				i++;
 				Thread.Sleep(100);
-				//if (i % 5 == 0)
-				//{
-				//	Log.Info("i%5==0");
-				//}
-				Log.RepeatLine(sw.Avg(i*3));
+				Log.RepeatLine(sw.Avg(j));
 			}
+			Log.NextLine();
+			Log.Info(a);// Convert to Json
+			Thread.Sleep(1000);
+			for (int j = 0; j < 10; j++)
+			{
+				Thread.Sleep(100);
+				Log.RepeatLine(sw.Avg(j));
+			}
+
 		}
 		public class MyClass
 		{
