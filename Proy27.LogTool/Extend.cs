@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 
@@ -48,11 +49,12 @@ namespace Proy27.LogTool
 						}
 						else if (t.Type == ConsoleType.RepeatLine)
 						{
-							//Console.CursorLeft = 0;
-							//Console.CursorLeft = 0;
+							Console.CursorLeft = 0;
+							Console.CursorTop += t.Offset;
 							Console.Write(t.Line);
 							Console.Write(new String(' ', 10));
 							Console.CursorLeft = 0;
+							Console.CursorTop -= t.Offset;
 						}
 						else if (t.Type == ConsoleType.NextLine)
 						{
@@ -67,13 +69,13 @@ namespace Proy27.LogTool
 		{
 			Queue.Add(new qq(value));
 		}
-		public static void RepeatLine(string value)
+		public static void RepeatLine(string value, int offset)
 		{
-			Queue.Add(qq.RepeatLine(value));
+			Queue.Add(qq.RepeatLine(value, offset));
 		}
 		public static void NextLine()
 		{
-			Queue.Add(new qq("",ConsoleType.NextLine));
+			Queue.Add(new qq("", ConsoleType.NextLine));
 		}
 
 		/*OLD
@@ -99,6 +101,7 @@ namespace Proy27.LogTool
 	{
 		public ConsoleType Type { get; set; }
 		public string Line { get; set; }
+		public int Offset { get; set; }
 
 		public qq()
 		{
@@ -107,20 +110,22 @@ namespace Proy27.LogTool
 		{
 			Line = e;
 			Type = ConsoleType.WriteLine;
+			Offset = 0;
 		}
-		public qq(string e, ConsoleType c)
+		public qq(string e, ConsoleType c, int o = 0)
 		{
 			Line = e;
 			Type = c;
+			Offset = o;
 		}
-		public static qq RepeatLine(string e)
+		public static qq RepeatLine(string e, int o)
 		{
-			return new qq(e, ConsoleType.RepeatLine);
+			return new qq(e, ConsoleType.RepeatLine, o);
 		}
 	}
 
 	public enum ConsoleType
 	{
-		WriteLine, RepeatLine,NextLine
+		WriteLine, RepeatLine, NextLine
 	}
 }

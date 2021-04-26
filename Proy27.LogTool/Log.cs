@@ -25,14 +25,14 @@ namespace Proy27.LogTool
 			var path = LogPath + now.ToString("yyyyMMdd") + ".log";
 			LogWriteFileByAppend(path, ss);
 		}
-		public static void RepeatLine(string e,bool saveToFile=false)
+		public static void RepeatLine(string e, int offset, bool saveToFile=false)
 		{
 			var now = DateTime.Now;
 			var ss = now.ToString("s") + $"    {e}";
 			if (IsConsole)
 			{
 				//Console.Out.WriteLineAsync(ss);
-				NonBlockingConsole.RepeatLine(ss);
+				NonBlockingConsole.RepeatLine(ss, offset);
 			}
 			if (saveToFile)
 			{
