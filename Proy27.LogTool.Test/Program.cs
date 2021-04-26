@@ -15,8 +15,6 @@ namespace Proy27.LogTool.Test
 			var a = new MyClass {aaa = "aaa",bbb = "bbb"};
 			Log.Info(a);// Convert to Json
 
-
-			//Console.WriteLine("Hello World!");
 			var sw = Stopwatch.StartNew(); 
 			int i = 0;
 			while (true)

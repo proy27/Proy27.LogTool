@@ -25,7 +25,7 @@ namespace Proy27.LogTool
 			var path = LogPath + now.ToString("yyyyMMdd") + ".log";
 			LogWriteFileByAppend(path, ss);
 		}
-		public static void RepeatLine(string e)
+		public static void RepeatLine(string e,bool saveToFile=false)
 		{
 			var now = DateTime.Now;
 			var ss = now.ToString("s") + $"    {e}";
@@ -34,8 +34,11 @@ namespace Proy27.LogTool
 				//Console.Out.WriteLineAsync(ss);
 				NonBlockingConsole.RepeatLine(ss);
 			}
-			var path = LogPath + now.ToString("yyyyMMdd") + ".log";
-			LogWriteFileByAppend(path, ss);
+			if (saveToFile)
+			{
+				var path = LogPath + now.ToString("yyyyMMdd") + ".log";
+				LogWriteFileByAppend(path, ss);
+			}
 		}
 		private static void _Log(object e, string type)
 		{
