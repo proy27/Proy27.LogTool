@@ -29,6 +29,8 @@ namespace Proy27.LogTool.Test
 				//Log.NextLine();
 				Log.RepeatLine(sw.Avg(j),0);
 				Log.RepeatLine(sw.Avg(j*2),1);
+				//Log.NextLine();
+				Log.RepeatLine("sdfsdfsdfffffffffffffffffffffffffffffff", 2);
 			}
 			Log.NextLine();
 			Log.NextLine();
