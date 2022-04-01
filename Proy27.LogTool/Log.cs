@@ -25,7 +25,7 @@ namespace Proy27.LogTool
 			var path = LogPath + now.ToString("yyyyMMdd") + ".log";
 			LogWriteFileByAppend(path, ss);
 		}
-		public static void RepeatLine(string e, int offset, bool saveToFile=false)
+		public static void RepeatLine(string e, int offset, bool saveToFile = false)
 		{
 			var now = DateTime.Now;
 			var ss = now.ToString("s") + $"    {e}";
@@ -116,6 +116,6 @@ namespace Proy27.LogTool
 		{
 			LogPath = path;
 		}
-		private static string LogPath = AppDomain.CurrentDomain.BaseDirectory + @"\Log\";
+		private static string LogPath = AppDomain.CurrentDomain.BaseDirectory + Path.DirectorySeparatorChar + @"Log" + Path.DirectorySeparatorChar;
 	}
 }
