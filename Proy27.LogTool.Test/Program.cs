@@ -9,13 +9,13 @@ namespace Proy27.LogTool.Test
 	{
 		static void Main(string[] args)
 		{
-			Log.Info("I am info");
-			Log.Debug("I am Debug");
-			Log.Error("I am Error");
+			//Log.Info("I am info");
+			//Log.Debug("I am Debug");
+			//Log.Error("I am Error");
 			dynamic a = new ExpandoObject();
 			a.aaa = "aaa";
 			a.bbb = "bbb";
-			Log.Info(a);// Convert to Json
+			//Log.Info(a);// Convert to Json
 
 			var sw = Stopwatch.StartNew(); 
 			for (int j = 0; j < 100; j++)
@@ -24,13 +24,13 @@ namespace Proy27.LogTool.Test
 				{
 					//Log.Info("i%5==0");
 				}
-				Thread.Sleep(1000);
-				Log.Info("i%5==0");
+				Thread.Sleep(200);
+				//Log.Info("i%5==0");
 				//Log.NextLine();
 				Log.RepeatLine(sw.Avg(j),0);
 				Log.RepeatLine(sw.Avg(j*2),1);
 				//Log.NextLine();
-				Log.RepeatLine("sdfsdfsdfffffffffffffffffffffffffffffff", 2);
+				//Log.RepeatLine("sdfsdfsdfffffffffffffffffffffffffffffff", 2);
 			}
 			Log.NextLine();
 			Log.NextLine();

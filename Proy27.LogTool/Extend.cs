@@ -49,10 +49,10 @@ namespace Proy27.LogTool
 						}
 						else if (t.Type == ConsoleType.RepeatLine)
 						{
-							
+
 							Console.CursorLeft = 0;
 							Console.CursorTop += t.Offset;
-							Console.Write(new string(' ', Console.WindowWidth));
+							Console.Write(new string(' ', Console.WindowWidth - 1));
 							Console.CursorLeft = 0;
 							Console.Write(t.Line);
 							Console.Write(new String(' ', 10));
