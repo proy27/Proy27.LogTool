@@ -5,20 +5,13 @@
     <Company>Proy27</Company>
     <Authors>Proy27</Authors>
     <Description>proy55663000@gmail.com</Description>
-    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <PackageLicenseFile></PackageLicenseFile>
     <RepositoryUrl>https://github.com/proy27/Proy27.LogTool</RepositoryUrl>
     <PackageProjectUrl>https://github.com/proy27/Proy27.LogTool</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.2</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Update="License.txt">
-      <Pack>True</Pack>
-    </None>
-    <None Include="License.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
 </Project>
