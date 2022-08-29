@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Company>Proy27</Company>
+    <Authors>Proy27</Authors>
+    <Description>proy55663000@gmail.com</Description>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/proy27/Proy27.LogTool</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/proy27/Proy27.LogTool</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="License.txt">
+      <Pack>True</Pack>
+    </None>
+    <None Include="License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

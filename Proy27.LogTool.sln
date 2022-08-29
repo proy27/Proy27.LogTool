@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proy27.LogTool", "Proy27.LogTool\Proy27.LogTool.csproj", "{ED865BBC-4FA7-4A53-85BA-DA087A99B58D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proy27.LogTool.Test", "Proy27.LogTool.Test\Proy27.LogTool.Test.csproj", "{D0DB46E5-3185-4F4D-9409-A2BD7A06AFF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proy27.LogTool.Test", "Proy27.LogTool.Test\Proy27.LogTool.Test.csproj", "{D0DB46E5-3185-4F4D-9409-A2BD7A06AFF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proy27.Encryption", "Proy27.Encryption\Proy27.Encryption.csproj", "{A204F573-683C-474B-9215-BB76BC8422C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D0DB46E5-3185-4F4D-9409-A2BD7A06AFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0DB46E5-3185-4F4D-9409-A2BD7A06AFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0DB46E5-3185-4F4D-9409-A2BD7A06AFF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A204F573-683C-474B-9215-BB76BC8422C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A204F573-683C-474B-9215-BB76BC8422C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A204F573-683C-474B-9215-BB76BC8422C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A204F573-683C-474B-9215-BB76BC8422C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
